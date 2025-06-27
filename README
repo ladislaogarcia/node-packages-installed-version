@@ -1,5 +1,3 @@
-<!-- @format -->
-
 # Node Packages Installed Version
 
 > Small library developed to get some or list all installed dependencies version in a NodeJS project.

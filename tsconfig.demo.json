@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./demo",
+    "rootDir": "./src",
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "NodeNext",
+    "moduleResolution": "node16",
+    "types": [ "node", "./types/index.d.ts" ],
+    "verbatimModuleSyntax": false
+  },
+  "include": [ "src/*.ts" ]
+}

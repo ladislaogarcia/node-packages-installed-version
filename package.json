@@ -1,0 +1,56 @@
+{
+  "name": "node-packages-installed-version",
+  "version": "1.0.0",
+  "description": "Small library developed to get some or list all installed version of project dependencies in a NodeJS environment.",
+  "main": "./dist/index.js",
+  "scripts": {
+    "start": "npm run build && node ./dist/index.js",
+    "format": "prettier .",
+    "format:fix": "prettier . -w",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
+    "build": "tsc -p tsconfig.json -d",
+    "typecheck": "tsc --noEmit",
+    "demo": "tsc -p tsconfig.demo.json -d && node ./demo/demo.js"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Ladislao García",
+    "email": "malcomcc@gmail.com",
+    "url": "https://github.com/ladislaogarcia"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@tsconfig/node-ts": "^23.6.1",
+    "@tsconfig/node22": "^22.0.2",
+    "@types/node": "^24.0.3",
+    "prettier": "^3.5.3",
+    "standard": "^17.1.2",
+    "typescript": "^5.8.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ladislaogarcia/node-packages-installed-version"
+  },
+  "files": [
+    "dist",
+    "!dist/**/*.map",
+    "types",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=22.14.0",
+    "npm": ">=10.9.2"
+  },
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "onFail": "error"
+    },
+    "packageManager": {
+      "name": "npm",
+      "onFail": "error"
+    }
+  }
+}
