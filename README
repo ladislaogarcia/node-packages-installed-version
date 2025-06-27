@@ -1,0 +1,60 @@
+<!-- @format -->
+
+# Node Packages Installed Version
+
+> Small library developed to get some or list all installed dependencies version in a NodeJS project.
+
+## Features
+
+- [Semantic Release](https://github.com/semantic-release/semantic-release)
+- [Issue Templates](https://github.com/ryansonshine/typescript-npm-package-template/tree/main/.github/ISSUE_TEMPLATE)
+
+## Getting started
+
+This package was inspired by the need to know what Prisma ORM version is in currently in use while I was developing the Prisma ORM generator called "@ladislaogarcia/zod-prisma-generator".
+
+That generator is a fork from "prisma-zod-generator" but with the added value of working in Prisma ORM versions 5 and 6. The related forked generator only works fine until Prisma ORM version 4.
+
+## Install
+
+```bash
+npm install node-packages-installed-version
+```
+
+## Usage
+
+```ts
+import { getNodePackagesInstalledVersion } from 'node-packages-installed-version';
+
+getNodePackagesInstalledVersion();
+
+getNodePackagesInstalledVersion(packageName);
+```
+
+## API
+
+### getNodePackagesInstalledVersion(packageName?)
+
+#### packageName
+
+Type: `string`
+
+This is the name of the package which version is required. If it is omitted, the package will retrieve all the dependencies of the project.
+It is only retrieves dependencies directly related with the project. It means the package only get dependencies from nivel zero.
+
+Lorem ipsum.
+
+[build-img]: https://github.com/ryansonshine/typescript-npm-package-template/actions/workflows/release.yml/badge.svg
+[build-url]: https://github.com/ryansonshine/typescript-npm-package-template/actions/workflows/release.yml
+[downloads-img]: https://img.shields.io/npm/dt/typescript-npm-package-template
+[downloads-url]: https://www.npmtrends.com/typescript-npm-package-template
+[npm-img]: https://img.shields.io/npm/v/typescript-npm-package-template
+[npm-url]: https://www.npmjs.com/package/typescript-npm-package-template
+[issues-img]: https://img.shields.io/github/issues/ryansonshine/typescript-npm-package-template
+[issues-url]: https://github.com/ryansonshine/typescript-npm-package-template/issues
+[codecov-img]: https://codecov.io/gh/ryansonshine/typescript-npm-package-template/branch/main/graph/badge.svg
+[codecov-url]: https://codecov.io/gh/ryansonshine/typescript-npm-package-template
+[semantic-release-img]: https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg
+[semantic-release-url]: https://github.com/semantic-release/semantic-release
+[commitizen-img]: https://img.shields.io/badge/commitizen-friendly-brightgreen.svg
+[commitizen-url]: http://commitizen.github.io/cz-cli/
