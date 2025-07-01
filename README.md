@@ -88,6 +88,44 @@ const pkgData = getNodePackagesInstalledVersion(packageName);
 // It is depends of the project needs.
 ```
 
+You can run a demostration that tries to retrieve the installed version of three use cases:
+
+1. 'Prettier': Installed dependency.
+2. 'Storybook': Not a dependency of this project.
+
+It is possible to run it for not installed dependency testing. It is only needed to install any package and **remove it manually from inside 'node_modules'. Do not use 'npm uninstall'** because it also will erase the dependency from 'package.json'.
+
+Then, add it to 'items' array as this:
+
+```javascript
+{
+    packageName: '<npm-package-name-added>',
+    text: 'Not Installed Dependency',
+},
+```
+
+You can run it just typing in a terminal
+
+```bash
+npm run demo
+```
+
+You will receive a response like this:
+
+```bash
+Getting data from "PRETTIER" as INSTALLED DEPENDENCY
+DEPS:
+ {
+  prettier: {
+    name: 'prettier',
+    version: { major: 3, minor: 5, patch: 3, full: '3.5.3' }
+  }
+}
+Getting data from "STORYBOOK" as NOT A DEPENDENCY
+DEPS:
+ null
+```
+
 <!-- <a href="https://github.com/ryansonshine/typescript-npm-package-template/actions/workflows/release.yml">
   <img src="https://github.com/ryansonshine/typescript-npm-package-template/actions/workflows/release.yml/badge.svg">
   </a>
