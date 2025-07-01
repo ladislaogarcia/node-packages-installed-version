@@ -11,7 +11,8 @@
     "lint:fix": "eslint --fix",
     "build": "tsc -p tsconfig.json -d",
     "typecheck": "tsc --noEmit",
-    "demo": "tsc -p tsconfig.demo.json -d && node ./demo/demo.js"
+    "demo": "npm run build && node ./demo/demo.js",
+    "postinstall": "npm uninstall @tsconfig/node22"
   },
   "keywords": [],
   "author": {
@@ -22,7 +23,6 @@
   "license": "MIT",
   "devDependencies": {
     "@tsconfig/node-ts": "^23.6.1",
-    "@tsconfig/node22": "^22.0.2",
     "@types/node": "^24.0.3",
     "prettier": "^3.5.3",
     "standard": "^17.1.2",

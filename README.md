@@ -15,6 +15,8 @@ That generator is a fork from "prisma-zod-generator" but with the added value of
 
 ## Install
 
+With **npm**:
+
 ```bash
 npm install node-packages-installed-version
 ```
@@ -22,10 +24,12 @@ npm install node-packages-installed-version
 ## Usage
 
 ```ts
+// Import the package
 import { getNodePackagesInstalledVersion } from 'node-packages-installed-version';
 
+// Get the installed version of all the installed dependencies
 getNodePackagesInstalledVersion();
-
+// Get the installed version of an installed dependency in particular
 getNodePackagesInstalledVersion(packageName);
 ```
 
@@ -37,22 +41,107 @@ getNodePackagesInstalledVersion(packageName);
 
 Type: `string`
 
-This is the name of the package which version is required. If it is omitted, the package will retrieve all the dependencies of the project.
-It is only retrieves dependencies directly related with the project. It means the package only get dependencies from nivel zero.
+This is the name in [npmjs.com](https://npmjs.com) of the package which version is required. If it is omitted, the package will retrieve all the dependencies of the project.
 
-Lorem ipsum.
+Only retrieves dependencies directly related with the project. It means the package only get dependencies from nivel zero.
 
-[build-img]: https://github.com/ryansonshine/typescript-npm-package-template/actions/workflows/release.yml/badge.svg
-[build-url]: https://github.com/ryansonshine/typescript-npm-package-template/actions/workflows/release.yml
-[downloads-img]: https://img.shields.io/npm/dt/typescript-npm-package-template
-[downloads-url]: https://www.npmtrends.com/typescript-npm-package-template
-[npm-img]: https://img.shields.io/npm/v/typescript-npm-package-template
-[npm-url]: https://www.npmjs.com/package/typescript-npm-package-template
-[issues-img]: https://img.shields.io/github/issues/ryansonshine/typescript-npm-package-template
-[issues-url]: https://github.com/ryansonshine/typescript-npm-package-template/issues
-[codecov-img]: https://codecov.io/gh/ryansonshine/typescript-npm-package-template/branch/main/graph/badge.svg
-[codecov-url]: https://codecov.io/gh/ryansonshine/typescript-npm-package-template
-[semantic-release-img]: https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg
-[semantic-release-url]: https://github.com/semantic-release/semantic-release
-[commitizen-img]: https://img.shields.io/badge/commitizen-friendly-brightgreen.svg
-[commitizen-url]: http://commitizen.github.io/cz-cli/
+Then, it will returns:
+
+```typescript
+null; // If the package is not a dependency or if it is not installed
+```
+
+or this structured data with the package name as key of the data value with the version.
+
+```typescript
+NPIVDependencyList {
+   // Pacakge Name
+  [packageName: string]: {
+    name: string; // Pacakge Name
+    version: {
+      major: number; // Major version as number.-> Eg: 4
+      minor: number; // Minor version as number.-> Eg: 2
+      patch: number; // Patch version as number -> Eg: 5
+      full: string; // Complete text version -> Eg: "4.2.5"
+    };
+  },
+  [anotherPackageName: string]: {
+    name: string; // Next Pacakge Name
+    ...
+  };
+}
+```
+
+So it is easy to retrieve the data of any wanted package. Just use the name of the package as index of the returned data to retrieve it. And use it.
+
+```typescript
+// It will retrieve the version of each dependency.
+const data = getNodePackagesInstalledVersion();
+// 'packageName' is the name of the package for retrieve its data.
+const pkgData = data[packageName];
+
+// This is the same as if it is done...
+const pkgData = getNodePackagesInstalledVersion(packageName);
+
+// It is depends of the project needs.
+```
+
+You can run a demostration that tries to retrieve the installed version of three use cases:
+
+1. 'Prettier': Installed dependency.
+2. 'Storybook': Not a dependency of this project.
+
+It is possible to run it for not installed dependency testing. It is only needed to install any package and **remove it manually from inside 'node_modules'. Do not use 'npm uninstall'** because it also will erase the dependency from 'package.json'.
+
+Then, add it to 'items' array as this:
+
+```javascript
+{
+    packageName: '<npm-package-name-added>',
+    text: 'Not Installed Dependency',
+},
+```
+
+You can run it just typing in a terminal
+
+```bash
+npm run demo
+```
+
+You will receive a response like this:
+
+```bash
+Getting data from "PRETTIER" as INSTALLED DEPENDENCY
+DEPS:
+ {
+  prettier: {
+    name: 'prettier',
+    version: { major: 3, minor: 5, patch: 3, full: '3.5.3' }
+  }
+}
+Getting data from "STORYBOOK" as NOT A DEPENDENCY
+DEPS:
+ null
+```
+
+<!-- <a href="https://github.com/ryansonshine/typescript-npm-package-template/actions/workflows/release.yml">
+  <img src="https://github.com/ryansonshine/typescript-npm-package-template/actions/workflows/release.yml/badge.svg">
+  </a>
+<a href="https://www.npmtrends.com/typescript-npm-package-template">
+  <img src="https://img.shields.io/npm/dt/typescript-npm-package-template">
+</a>
+<a href="https://www.npmjs.com/package/typescript-npm-package-template">
+  <img src="https://img.shields.io/npm/v/typescript-npm-package-template">
+</a>
+<a href="https://github.com/ryansonshine/typescript-npm-package-template/issues">
+  <img src="https://img.shields.io/github/issues/ryansonshine/typescript-npm-package-template">
+</a>
+<a href="https://codecov.io/gh/ryansonshine/typescript-npm-package-template">
+  <img src="https://codecov.io/gh/ryansonshine/typescript-npm-package-template/branch/main/graph/badge.svg">
+</a>
+  <a href="https://github.com/semantic-release/semantic-release">
+    <img src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg">
+  </a>
+  <a href="http://commitizen.github.io/cz-cli/">
+    <img src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg">
+  </a> -->

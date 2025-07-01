@@ -5,6 +5,13 @@ import {
   SpawnSyncReturns,
   execSync,
 } from 'child_process';
+import {
+  NPIVDependencyList,
+  NPIVDependencyVersion,
+  NPIVInstalledDependency,
+  NPMDependency,
+  NPMNotInstalledDependency,
+} from '@/types';
 
 const ERROR_CODE = {
   MISSING_PACKAGE: 'ELSPROBLEMS',
@@ -22,7 +29,7 @@ const getSplitVersionFromString = (version: string): NPIVDependencyVersion => {
 
 const getInstalledDependenciesFromMap = (
   dependencies: Object,
-): { [k: string]: NPIVInstalledDependency } => {
+): NPIVDependencyList => {
   if (!dependencies) return {};
   const entries: Map<string, NPIVInstalledDependency> = Object.entries(
     dependencies,
@@ -47,7 +54,7 @@ const getInstalledDependenciesFromMap = (
 
 const getNodePackagesInstalledVersion = (
   packageName?: string,
-): { [k: string]: unknown } | null => {
+): NPIVDependencyList | null => {
   let response = new Map();
   try {
     const command = `npm ls${!!packageName ? ` ${packageName} ` : ' '}--depth=0 --long --json`;

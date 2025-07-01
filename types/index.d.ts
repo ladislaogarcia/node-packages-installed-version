@@ -24,6 +24,6 @@ interface NPIVDependencyVersion {
   full: string;
 }
 
-interface NPIVDependencyList {
-  dependencies: NPIVInstalledDependency[];
+export interface NPIVDependencyList {
+  [k: string]: NPIVInstalledDependency;
 }

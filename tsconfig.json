@@ -7,8 +7,11 @@
     "forceConsistentCasingInFileNames": true,
     "module": "NodeNext",
     "moduleResolution": "node16",
-    "types": [ "node", "./types/index.d.ts" ],
-    "verbatimModuleSyntax": false
-  },
-  "include": [ "src/index.ts" ]
+    "types": [ "node", "./types" ],
+    "verbatimModuleSyntax": false,
+    "paths": {
+      "@/types": [ "./types" ],
+      "@/package": [ "./src" ]
+    }
+  }
 }
