@@ -1,6 +1,6 @@
 {
   "name": "node-packages-installed-version",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Small library developed to get some or list all installed version of project dependencies in a NodeJS environment.",
   "main": "./dist/index.js",
   "scripts": {
