@@ -54,7 +54,7 @@ const getInstalledDependenciesFromMap = (
 
 const getNodePackagesInstalledVersion = (
   packageName?: string,
-): NPIVDependencyList | null => {
+): NPIVInstalledDependency | NPIVDependencyList | null => {
   let response = new Map();
   try {
     const command = `npm ls${!!packageName ? ` ${packageName} ` : ' '}--depth=0 --long --json`;
@@ -69,9 +69,13 @@ const getNodePackagesInstalledVersion = (
       (item: NPMDependency) => (item as NPMNotInstalledDependency).missing,
     );
   } finally {
-    return Object.keys(response).length >= 1 ?
+    const dependencies =
+      Object.keys(response).length >= 1 ?
         getInstalledDependenciesFromMap(response)
       : null;
+    return dependencies && !!packageName ?
+        dependencies[packageName]
+      : dependencies;
   }
 };
 
