@@ -39,10 +39,6 @@
     "README.md",
     "LICENSE"
   ],
-  "engines": {
-    "node": ">=22.14.0",
-    "npm": ">=10.9.2"
-  },
   "devEngines": {
     "runtime": {
       "name": "node",
