@@ -1,6 +1,6 @@
 # Node Packages Installed Version
 
-> Small library developed to get some or list all installed dependencies version in a NodeJS project.
+> Small library developed to get the current exact version of some or all installed dependencies in a NodeJS project.
 
 ## Features
 
@@ -9,9 +9,7 @@
 
 ## Getting started
 
-This package was inspired by the need to know what Prisma ORM version is in currently in use while I was developing the Prisma ORM generator called "@ladislaogarcia/zod-prisma-generator".
-
-That generator is a fork from "prisma-zod-generator" but with the added value of working in Prisma ORM versions 5 and 6. The related forked generator only works fine until Prisma ORM version 4.
+This package was inspired by the need to know what Prisma ORM version is in currently in use while I was developing the Prisma ORM generator called ["@ladislaogarcia/zod-prisma-generator".  ](https://www.npmjs.com/package/@ladislaogarcia/prisma-zod-generator)
 
 ## Install
 
@@ -80,7 +78,7 @@ const data = getNodePackagesInstalledVersion();
 // 'packageName' is the name of the package for retrieve its data.
 const pkgData = data[packageName];
 
-// This is the same as if it is done...
+// That is the same as if it is done...
 const pkgData = getNodePackagesInstalledVersion(packageName);
 
 // It is depends of the project needs.
@@ -91,7 +89,7 @@ You can run a demostration that tries to retrieve the installed version of three
 1. 'Prettier': Installed dependency.
 2. 'Storybook': Not a dependency of this project.
 
-It is possible to run it for not installed dependency testing. It is only needed to install any package and **remove it manually from inside 'node_modules'. Do not use 'npm uninstall'** because it also will erase the dependency from 'package.json'.
+It can run to check for non-installed dependencies. It is only required to install any package and **remove it manually from inside 'node_modules'. Do not use 'npm uninstall'** because it also will erase the dependency from 'package.json'.
 
 Then, add it to 'items' array as this:
 
@@ -122,26 +120,3 @@ DEPS:
 Getting data from "STORYBOOK" as NOT A DEPENDENCY
 DEPS:
  null
-```
-
-<!-- <a href="https://github.com/ryansonshine/typescript-npm-package-template/actions/workflows/release.yml">
-  <img src="https://github.com/ryansonshine/typescript-npm-package-template/actions/workflows/release.yml/badge.svg">
-  </a>
-<a href="https://www.npmtrends.com/typescript-npm-package-template">
-  <img src="https://img.shields.io/npm/dt/typescript-npm-package-template">
-</a>
-<a href="https://www.npmjs.com/package/typescript-npm-package-template">
-  <img src="https://img.shields.io/npm/v/typescript-npm-package-template">
-</a>
-<a href="https://github.com/ryansonshine/typescript-npm-package-template/issues">
-  <img src="https://img.shields.io/github/issues/ryansonshine/typescript-npm-package-template">
-</a>
-<a href="https://codecov.io/gh/ryansonshine/typescript-npm-package-template">
-  <img src="https://codecov.io/gh/ryansonshine/typescript-npm-package-template/branch/main/graph/badge.svg">
-</a>
-  <a href="https://github.com/semantic-release/semantic-release">
-    <img src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg">
-  </a>
-  <a href="http://commitizen.github.io/cz-cli/">
-    <img src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg">
-  </a> -->
